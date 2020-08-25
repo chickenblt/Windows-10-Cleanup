@@ -2,8 +2,9 @@
 
 This powershell script will remove all windows 10 apps apart from edge and connect and the core windows 10 programs
 
-If you delete too much stuff, create a new user and all the apps will come back
+The store will stay! You can add specific programs such as xbox or photos after you run this by going to the store and downloading them!
+
 
 Command: 
 
-Get-AppxPackage | Remove-AppxPackage
+Get-AppxPackage -AllUsers | where-object {$_.name -notlike "*Microsoft.WindowsStore*"} | where-object {$_.name -notlike "*Microsoft.WindowsCalculator*"} | Remove-AppxPackage
